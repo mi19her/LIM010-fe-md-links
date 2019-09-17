@@ -1,0 +1,1 @@
+const absoluterout = require('eslint')
