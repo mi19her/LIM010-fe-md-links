@@ -1,7 +1,8 @@
 import {
   typePath, verificRoute, verificFileDir, markedRender,
 } from '../src/route.js';
-import { linksCorect, stats } from '../src/links.js';
+import { linksCorect, stats, statsValidate } from '../src/links.js';
+import { mdlinks } from '../src/mdlinks.js';
 
 const output = ['D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\archivo2\\mack.md',
   'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow.md',
@@ -44,7 +45,7 @@ const output2 = [{
 const output3 = [{
   href: 'https://nodejs.org/api/fs.html',
   ruta:
-        'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\archivo2\\mack.md',
+    'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\archivo2\\mack.md',
   text: 'file system',
   status: 200,
   statusText: 'OK',
@@ -52,7 +53,7 @@ const output3 = [{
 {
   href: 'https://nodejs.org/api/path.html',
   ruta:
-        'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\archivo2\\mack.md',
+    'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\archivo2\\mack.md',
   text: 'path',
   status: 200,
   statusText: 'OK',
@@ -60,7 +61,7 @@ const output3 = [{
 {
   href: 'https://nodejs.org/en/',
   ruta:
-        'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow.md',
+    'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow.md',
   text: 'Node.js',
   status: 200,
   statusText: 'OK',
@@ -68,7 +69,7 @@ const output3 = [{
 {
   href: 'https://nodejs.org/docs/latest-v0.10.x/api/modules.html',
   ruta:
-        'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow.md',
+    'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow.md',
   text: 'módulos (CommonJS)',
   status: 200,
   statusText: 'OK',
@@ -76,7 +77,7 @@ const output3 = [{
 {
   href: 'https://daringfireball.net/projects/markdown/syntax',
   ruta:
-        'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow2.md',
+    'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow2.md',
   text: 'markdown',
   status: 200,
   statusText: 'OK',
@@ -84,7 +85,7 @@ const output3 = [{
 {
   href: 'https://docs.npmjs.com/misc/scripts',
   ruta:
-        'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow2.md',
+    'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow2.md',
   text: 'npm-scripts',
   status: 200,
   statusText: 'OK',
@@ -92,7 +93,7 @@ const output3 = [{
 {
   href: 'https://semver.org/',
   ruta:
-        'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow2.md',
+    'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow2.md',
   text: 'semver',
   status: 200,
   statusText: 'OK',
@@ -132,6 +133,20 @@ describe('linksCorect', () => {
 
 describe('stats', () => {
   it('deberia mostrar los links validados y los que no', () => {
-    expect(stats(output3)).toBe('Total:7 Unique:1 Broken:');
+    expect(stats(output3)).toBe('Total:7 Unique:1');
   });
+});
+
+describe('statsValidate', () => {
+  it('deberia mostrar los links validados y los que no', () => {
+    expect(statsValidate(output3)).toBe('Total:7 Unique:1 Broken:0');
+  });
+});
+
+describe('mdlinks', () => {
+  it('deberia validar los links que existen', (done) => mdlinks('D:/archivoMkdown/LIM010-fe-md-links/archivos', { validate: true })
+    .then((res) => {
+      expect(res).toEqual(output3);
+      done();
+    }));
 });
