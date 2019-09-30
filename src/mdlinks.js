@@ -10,10 +10,6 @@ const mdlinks = (route, options) => new Promise((resolve) => {
   }
 });
 
-// mdlinks('D:/archivoMkdown/LIM010-fe-md-links/archivos', { validate: true }).then((val) => {
-//   console.log(val);
-// });
-
 export {
   mdlinks,
 };
