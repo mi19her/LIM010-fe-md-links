@@ -1,22 +1,24 @@
-import { markedRender } from '../src/route.js';
+import fetch from 'node-fetch';
+import { markedRender } from './route.js';
 
 const linksCorect = (route) => {
   const typeHref = markedRender(route);
-  const arrayPromises = typeHref.map(element => new Promise(resolve => {
-    return (fetch)(element.href).then(res => {
+  const arrayPromises = typeHref.map((element) => new Promise((resolve) => {
+    const data = { ...element };
+    fetch(element.href).then((res) => {
       if (res.status >= 200 && res.status < 400) {
-        element.status = res.status;
-        element.statusText = res.statusText;
-        resolve(element);
+        data.status = res.status;
+        data.statusText = res.statusText;
+        resolve(data);
       } else {
-        element.status = res.status;
-        element.statusText = 'Fail';
-        resolve(element);
+        data.status = res.status;
+        data.statusText = 'Fail';
+        resolve(data);
       }
     }).catch(() => {
-      element.status = '';
-      element.statusText = 'Este link no existe';
-      resolve(element);
+      data.status = '';
+      data.statusText = 'Este link no existe';
+      resolve(data);
     });
   }));
   return Promise.all(arrayPromises);

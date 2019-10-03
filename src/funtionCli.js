@@ -8,7 +8,7 @@ const fsMdlinks = (path, options) => {
     resultado = new Promise((resolve) => resolve('ingrese una ruta <path-to-file>'));
   } else if (options.validate === undefined) {
     resultado = mdlinks(path, { validate: false })
-      .then((res) =>{
+      .then((res) => {
         let stringElem = '';
         res.forEach((elem) => {
           stringElem += `${elem.ruta} ${elem.href} ${elem.text}\n`;

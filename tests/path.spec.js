@@ -5,116 +5,111 @@ import { linksCorect, stats, statsValidate } from '../src/links.js';
 import { mdlinks } from '../src/mdlinks.js';
 import { fsMdlinks } from '../src/funtionCli.js';
 
-const output = ['D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\archivo2\\mack.md',
-  'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow.md',
-  'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow2.md'];
+const path = require('path');
+
+const output = [path.join(process.cwd(), '\\archivos\\archivo2\\mack.md'),
+  path.join(process.cwd(), '\\archivos\\mackdow.md'),
+  path.join(process.cwd(), '\\archivos\\mackdow2.md')];
 const output2 = [{
   href: 'https://nodejs.org/api/fs.html',
-  ruta: 'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\archivo2\\mack.md',
+  ruta: path.join(process.cwd(), '\\archivos\\archivo2\\mack.md'),
   text: 'file system',
 },
 {
   href: 'https://nodejs.org/api/path.html',
-  ruta: 'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\archivo2\\mack.md',
+  ruta: path.join(process.cwd(), '\\archivos\\archivo2\\mack.md'),
   text: 'path',
 },
 {
   href: 'https://nodejs.org/en/',
-  ruta: 'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow.md',
+  ruta: path.join(process.cwd(), '\\archivos\\mackdow.md'),
   text: 'Node.js',
 },
 {
   href: 'https://nodejs.org/docs/latest-v0.10.x/api/modules.html',
-  ruta: 'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow.md',
+  ruta: path.join(process.cwd(), '\\archivos\\mackdow.md'),
   text: 'módulos (CommonJS)',
 },
 {
   href: 'https://daringfireball.net/projects/markdown/syntax',
-  ruta: 'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow2.md',
+  ruta: path.join(process.cwd(), '\\archivos\\mackdow2.md'),
   text: 'markdown',
 },
 {
   href: 'https://docs.npmjs.com/misc/scripts',
-  ruta: 'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow2.md',
+  ruta: path.join(process.cwd(), '\\archivos\\mackdow2.md'),
   text: 'npm-scripts',
 },
 {
   href: 'https://semver.org/',
-  ruta: 'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow2.md',
+  ruta: path.join(process.cwd(), '\\archivos\\mackdow2.md'),
   text: 'semver',
 }];
 const output3 = [{
   href: 'https://nodejs.org/api/fs.html',
-  ruta:
-    'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\archivo2\\mack.md',
+  ruta: path.join(process.cwd(), '\\archivos\\archivo2\\mack.md'),
   text: 'file system',
   status: 200,
   statusText: 'OK',
 },
 {
   href: 'https://nodejs.org/api/path.html',
-  ruta:
-    'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\archivo2\\mack.md',
+  ruta: path.join(process.cwd(), '\\archivos\\archivo2\\mack.md'),
   text: 'path',
   status: 200,
   statusText: 'OK',
 },
 {
   href: 'https://nodejs.org/en/',
-  ruta:
-    'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow.md',
+  ruta: path.join(process.cwd(), '\\archivos\\mackdow.md'),
   text: 'Node.js',
   status: 200,
   statusText: 'OK',
 },
 {
   href: 'https://nodejs.org/docs/latest-v0.10.x/api/modules.html',
-  ruta:
-    'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow.md',
+  ruta: path.join(process.cwd(), '\\archivos\\mackdow.md'),
   text: 'módulos (CommonJS)',
   status: 200,
   statusText: 'OK',
 },
 {
   href: 'https://daringfireball.net/projects/markdown/syntax',
-  ruta:
-    'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow2.md',
+  ruta: path.join(process.cwd(), '\\archivos\\mackdow2.md'),
   text: 'markdown',
   status: 200,
   statusText: 'OK',
 },
 {
   href: 'https://docs.npmjs.com/misc/scripts',
-  ruta:
-    'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow2.md',
+  ruta: path.join(process.cwd(), '\\archivos\\mackdow2.md'),
   text: 'npm-scripts',
   status: 200,
   statusText: 'OK',
 },
 {
   href: 'https://semver.org/',
-  ruta:
-    'D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow2.md',
+  ruta: path.join(process.cwd(), '\\archivos\\mackdow2.md'),
   text: 'semver',
   status: 200,
   statusText: 'OK',
 }];
 
-const output4 = `D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\archivo2\\mack.md https://nodejs.org/api/fs.html file system
-D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\archivo2\\mack.md https://nodejs.org/api/path.html path
-D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow.md https://nodejs.org/en/ Node.js
-D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow.md https://nodejs.org/docs/latest-v0.10.x/api/modules.html módulos (CommonJS)
-D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow2.md https://daringfireball.net/projects/markdown/syntax markdown
-D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow2.md https://docs.npmjs.com/misc/scripts npm-scripts
-D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow2.md https://semver.org/ semver\n`;
+const output4 = `${path.join(process.cwd(), '\\archivos\\archivo2\\mack.md')} https://nodejs.org/api/fs.html file system
+${path.join(process.cwd(), '\\archivos\\archivo2\\mack.md')} https://nodejs.org/api/path.html path
+${path.join(process.cwd(), '\\archivos\\mackdow.md')} https://nodejs.org/en/ Node.js
+${path.join(process.cwd(), '\\archivos\\mackdow.md')} https://nodejs.org/docs/latest-v0.10.x/api/modules.html módulos (CommonJS)
+${path.join(process.cwd(), '\\archivos\\mackdow2.md')} https://daringfireball.net/projects/markdown/syntax markdown
+${path.join(process.cwd(), '\\archivos\\mackdow2.md')} https://docs.npmjs.com/misc/scripts npm-scripts
+${path.join(process.cwd(), '\\archivos\\mackdow2.md')} https://semver.org/ semver\n`;
 
-const output5 = `D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\archivo2\\mack.md https://nodejs.org/api/fs.html file system 200 OK
-D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\archivo2\\mack.md https://nodejs.org/api/path.html path 200 OK
-D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow.md https://nodejs.org/en/ Node.js 200 OK
-D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow.md https://nodejs.org/docs/latest-v0.10.x/api/modules.html módulos (CommonJS) 200 OK
-D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow2.md https://daringfireball.net/projects/markdown/syntax markdown 200 OK
-D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow2.md https://docs.npmjs.com/misc/scripts npm-scripts 200 OK
-D:\\archivoMkdown\\LIM010-fe-md-links\\archivos\\mackdow2.md https://semver.org/ semver 200 OK\n`;
+const output5 = `${path.join(process.cwd(), '\\archivos\\archivo2\\mack.md')} https://nodejs.org/api/fs.html file system 200 OK
+${path.join(process.cwd(), '\\archivos\\archivo2\\mack.md')} https://nodejs.org/api/path.html path 200 OK
+${path.join(process.cwd(), '\\archivos\\mackdow.md')} https://nodejs.org/en/ Node.js 200 OK
+${path.join(process.cwd(), '\\archivos\\mackdow.md')} https://nodejs.org/docs/latest-v0.10.x/api/modules.html módulos (CommonJS) 200 OK
+${path.join(process.cwd(), '\\archivos\\mackdow2.md')} https://daringfireball.net/projects/markdown/syntax markdown 200 OK
+${path.join(process.cwd(), '\\archivos\\mackdow2.md')} https://docs.npmjs.com/misc/scripts npm-scripts 200 OK
+${path.join(process.cwd(), '\\archivos\\mackdow2.md')} https://semver.org/ semver 200 OK\n`;
 
 const outputCatch = [{
   href: 'https://daringfireball.net/projects/markdown/syntax',
@@ -151,7 +146,7 @@ describe('typePath', () => {
     expect(typePath('D:/archivoMkdown/LIM010-fe-md-links/src')).toBe('D:/archivoMkdown/LIM010-fe-md-links/src');
   });
   it('Deberia leer una ruta relativa', () => {
-    expect(typePath('../LIM010-fe-md-links/src')).toBe('D:\\archivoMkdown\\LIM010-fe-md-links\\src');
+    expect(typePath('../LIM010-fe-md-links/src')).toBe(path.join(process.cwd(), '\\src'));
   });
 });
 describe('verificRoute', () => {
