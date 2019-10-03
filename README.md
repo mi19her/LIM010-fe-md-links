@@ -130,3 +130,29 @@ Total: 3
 Unique: 3
 Broken: 1
 ```
+Javascript
+
+- [x] Uso de callbacks
+- [x] Consumo de Promesas
+- [x]  Creacion de Promesas
+- [x]  Modulos de Js
+- [x]  Recursión
+Node
+- [x]  Sistema de archivos
+- [x]  package.json
+- [x] crear modules
+- [x]  Instalar y usar modules
+- [x]  npm scripts
+- [x] CLI (Command Line Interface - Interfaz de Línea de Comando)
+Testing
+ - [x] Testeo de tus funciones
+ - [x] Testeo asíncrono
+ - [x] Uso de librerias de Mock
+ - [x] Mocks manuales
+ - [ ] Testeo para multiples Sistemas Operativos
+Git y Github
+ - [x] Organización en Github
+Buenas prácticas de desarrollo
+ - [x] Modularización
+ - [x] Nomenclatura / Semántica
+ - [x] Linting
