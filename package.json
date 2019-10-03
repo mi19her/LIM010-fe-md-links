@@ -2,7 +2,7 @@
   "name": "lim010-fe-md-links",
   "version": "1.0.0",
   "description": "mdlinks",
-  "main": "src/route.js",
+  "main": "lib/mdlinks.js",
   "scripts": {
     "build": "babel src -d lib",
     "lint": "eslint --ext .js src/ tests/",

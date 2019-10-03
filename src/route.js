@@ -2,7 +2,6 @@ import path from 'path';
 import fs from 'fs';
 import marked from 'marked';
 
-
 const typePath = (stringRoute) => {
   if (path.isAbsolute(stringRoute) === false) {
     return path.resolve(stringRoute);
@@ -30,7 +29,6 @@ const verificFileDir = (route) => {
   });
   return results;
 };
-// console.log(verificFileDir('D:/archivoMkdown/LIM010-fe-md-links/archivos'));
 
 const markedRender = (route) => {
   const arrayArch = [];

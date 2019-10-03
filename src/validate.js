@@ -1,7 +1,7 @@
-import { markedRender } from '../src/route.js'
+import { markedRender } from '../src/route.js';
 
 const linksCorect = (route) => {
-  const typeHref = markedRender(route)
+  const typeHref = markedRender(route);
   const arrayPromises = typeHref.map(element => new Promise(resolve => {
     return (fetch)(element.href).then(res => {
       if (res.status >= 200 && res.status < 400) {
@@ -22,6 +22,10 @@ const linksCorect = (route) => {
   return Promise.all(arrayPromises);
 };
 
-linksCorect('D:/archivoMkdown/LIM010-fe-md-links/archivos').then(res => {
-  console.log(res);
-}); 
+export {
+  linksCorect,
+};
+
+// linksCorect('D:/archivoMkdown/LIM010-fe-md-links/archivos').then(res => {
+//   console.log(res);
+// });
